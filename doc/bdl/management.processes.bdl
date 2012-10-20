@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <!-- befinde sich immer in entity  -->
+  <managements>
+  
+    <management name="name" src="name" >
+    
+      
+      <!-- 
+      Einbinden des Prozesses in den Controller
+       -->
+      <processes>
+      
+        <!-- 
+          name: name des Prozesses
+          as: aliasname und kürzeren code zu bekommen
+        
+         -->
+      
+        <process 
+          name="name_des_einzubindenten_prozesses"
+          as="aliasname" >
+       
+        </process>
+
+      </processes>
+
+    
+    </management>
+    
+  </managements>
+
+</bdl>

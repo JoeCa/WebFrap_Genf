@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <!-- befinde sich immer in entity  -->
+  <managements>
+  
+    <management name="name" src="name" >
+    
+
+      <references>
+      
+        <ref name="refname"  >
+          <!-- Das Label der Referenz kann geändert werden  -->
+          <label>
+            <text lang="de" >Projects</text>
+            <text lang="en" >Projects</text>
+          </label>
+          
+          <!-- 
+          TAG: </managements/management/references/ref/ui>
+          Das UI Tag kann überschrieben werden
+          
+          Attribute:
+          
+          @interpret: Anweisung an den Interpreter wie das UI Tag zu interpertieren ist. 
+                     Default Value ist "extend"
+          
+          - extend  die informationen erweitern
+          - replace das komplette UI element mit diesem ersetzen  
+          - clean   entfernt alle UI informationen 
+          
+           -->
+          <ui interpret="replace"  >
+            
+            <!-- 
+            TAG: </managements/management/references/ref/ui/list>
+            Beschreiben der Listenelemente
+            
+            Attribute: 
+              @interpret: Siehe </managements/management/references/ref/ui@interpret>
+            
+
+            Die Tags
+            </entities/entitiy/references/ref/src>, 
+            </entities/entitiy/references/ref/target> und 
+            </entities/entitiy/references/ref/connection> 
+                       
+            Sowie die Attribute
+            
+            @binding und 
+            @relation 
+
+            können nicht überschrieben werden.
+            
+            -->
+            <list interpret="extend" >
+            
+              <table>
+                <!-- 
+                TAG: </managements/management/references/ref/ui/list/table/layout>
+                Layout kann nur komplett überschrieben, oder entfernt werden -->
+                <layout>
+                
+                </layout>
+                
+                <!--
+                  TAG: </managements/management/references/ref/ui/list/table/properties>
+                  Eigenschaften des Tabellen UI elements 
+                  
+                  Properties können Table spezifisch sein.
+                  
+                -->
+                <properties>
+                  <!--
+                    TAG: </managements/management/references/ref/ui/list/table/properties>
+                    Eigenschaften des Tabellen UI elements 
+                  -->
+                  <search_field size="" display="" > 
+                    <buttons>
+                    </buttons>
+                  </search_field>
+                  
+                </properties>
+              </table>
+            
+            </list>
+          </ui>
+          
+
+          
+        </ref>
+  
+      </references>
+    
+    
+    </management>
+    
+  </managements>
+
+</bdl>

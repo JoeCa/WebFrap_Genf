@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <entities>
+
+    <entity name="name" >
+    
+
+      <references>
+      
+        <ref name="projects" binding="free"  relation="manyToOne" >
+        
+          <ui>
+  
+            <list>
+              
+<!-- 
+Filter werden verwendet um die anzahl der Datensätze einzuschränken die angezeigt
+werden. Hier geht es primär darum nur das anzuzeigen was interessiert.
+Eine Zugriffskorntrolle muss mit den ACLs implementiert werden.
+
+Es ist nur ein Filter Tag möglich, in dem jedoch praktisch alles was in SQL möglich
+ist realisiert werden kann.
+-->
+              <filter>
+                project_activity.id_status.position IN(10,11)
+              </filter>
+          
+            </list>
+          </ui>
+        </ref>
+      
+      </references>
+    
+    </entity>
+  </entities>
+
+</bdl>

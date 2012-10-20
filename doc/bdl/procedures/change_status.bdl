@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+  
+  <somewhere>
+    <action>
+    
+      <procedures>
+      
+        <!-- 
+        Den Status eines Prozesses ändern
+         -->
+        <procedure type="change_status" >
+        
+          <!-- 
+          Der key des Status in welcher der Prozess geändert werden soll.
+          
+          Diese Procedure unterstützt momentan nur Prozesse daher ist eine
+          Angabe des Prozesses nicht nötig
+          
+          required
+           -->
+          <status key="new" />
+  
+        </procedure>
+      </procedures>
+    
+    </action>
+    
+  </somewhere>
+
+</bdl>

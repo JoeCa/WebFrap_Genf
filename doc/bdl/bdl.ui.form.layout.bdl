@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <managements>
+
+    <management name="some_mask" src="some_entity" >
+      
+      <!-- 
+      UI ist der Teil mit dem das UI sehr genau spezifiziert werden kann
+      UI kann in vielen verschiedenen node typen eingebunden werden.
+      -->
+      
+      <ui>
+        <form>
+
+          <edit>
+            <layout>
+              <tabs>
+                <body>
+                 <tab name="default" >
+                 
+                   <body>
+                   
+                    <group name="default" cols="3" >
+                      <body>
+                        <field name="title" ></field>
+                        <field name="name" ></field>
+                        <field name="id_category" ></field>
+                      </body>
+                    </group>
+                  
+                    <box name="datac" type="tab" >
+                      <body>
+                        <tab name="resources" >
+                          <body>
+                            <group name="resources" cols="3" >
+                              <body>
+                                <field name="planned_manhours" src="default_task" ></field>
+                                <field name="actual_manhours" src="default_task" ></field>
+                              </body>
+                            </group>
+                          </body>
+                        </tab>
+                        <tab name="schedule" >
+                          <body>                  
+                            <group name="schedule" cols="3" >
+                              <body>
+                                <field name="start_date" ></field>
+                                <field name="end_date" ></field>
+                                <field name="duration" ></field>
+                              </body>
+                            </group>
+                          </body>
+                        </tab>
+                        <tab name="budget" >
+                          <body>
+                            <group name="budget" cols="3" >
+                              <body>
+                                <field name="total_budget" src="default_task" ></field>
+                                <field name="total_effort" src="default_task" ></field>
+                                <field name="funding" src="default_task" ></field>
+                              </body>
+                            </group>
+                          </body>
+                        </tab>
+                      </body>
+                    </box>
+                    
+                    <box type="fieldset" >
+                      <legend>Roles</legend>
+                      
+                      <box  class="left half" >
+                        
+                        <!-- 
+                          key wird für identkey verwenden
+                          wenn key nicht vorhanden ist wird name anstelle dessen verwendet
+                         -->
+                        <ref_input name="project_manager" key="project_manager" type="role"  >
+                        
+                          <label>
+                            <text lang="en" >Project Manager</text>
+                          </label>
+                          
+                          <!-- Alle anderen Assignments auf von Projektmanagern löschen -->
+                          <cardinality single="true" >
+                            <fallback_role name="project_manager_deputy" ></fallback_role>
+                          </cardinality>
+                          
+                          <role>project_manager</role>
+                          
+                          
+                                        
+                        </ref_input>
+                        
+                      </box>
+                    
+                    </box>
+ 
+                    <category name="capa" />
+                    <category name="meta" />
+                  </body>
+                </tab>
+              
+                <tab name="tasks" type="load" >
+                  <body>
+                    <box class="full wgt_border_bottom" >
+                     <reference name="project_tasks" />
+                    </box>
+                  </body>
+                </tab>
+              
+                <tab name="employees" type="load" >
+                  <body>
+                    <reference name="project_employee" />
+                  </body>
+                </tab>
+              
+                <tab name="internal" type="load" >
+                  <body>
+                    <box class="half left wgt_border_right" >
+                     <reference name="project_id" >
+                       <ui>
+                        <list>
+                          <table>
+                            <properties>
+                              <search_field display="false" />
+                            </properties>
+                          </table>
+                        </list>
+                       </ui>
+                     </reference>
+                    </box>
+                    <box class="half right wgt_border_left" >
+                     <reference name="cost_center" >
+                       <ui>
+                        <list>
+                          <table>
+                            <properties>
+                              <search_field display="false" />
+                            </properties>
+                          </table>
+                        </list>
+                       </ui>
+                     </reference>
+                    </box>
+                  </body>
+                </tab>
+                
+                <tab name="resources" type="load" >
+                  <body>
+                    <box class="full" >
+                     <reference name="project_bookings" />
+                    </box>
+                    <box class="full" >
+                     <reference name="travels" />
+                    </box>
+                  </body>
+                </tab>
+                
+                <tab name="info" type="load" >
+                  <body>
+                  
+                    <box class="left half wgt_border_right" >
+                      <reference name="comments" >
+                       <ui>
+                        <list>
+                          <table>
+                            <properties>
+                              <search_field size="medium" />
+                              <body height="small" ></body>
+                            </properties>
+                          </table>
+                        </list>
+                       </ui>
+                     </reference>
+                    </box>
+                    
+                    <box class="right half wgt_border_left" >
+                      <reference name="tags" >
+                       <ui>
+                        <list>
+                          <table>
+                            <properties>
+                              <search_field size="medium" />
+                              <body height="small" ></body>
+                            </properties>
+                          </table>
+                        </list>
+                       </ui>
+                     </reference>
+                    </box>
+                    
+                    <box class="full" >
+                      <reference name="attachments" />
+                    </box>
+                    
+                  </body>
+                </tab>
+              
+                </body>
+                            
+              </tabs>
+            </layout>
+          </edit>
+          
+        </form>
+
+      </ui>
+      
+    </management>
+
+  </managements>
+
+</bdl>

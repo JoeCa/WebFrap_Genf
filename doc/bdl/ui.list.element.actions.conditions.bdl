@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <managements>
+
+    <management 
+      name="project_task" 
+      src="project_task" >
+
+      <ui>
+ 
+        <list>
+
+          <treetable>
+
+            <actions>
+              
+              <node name="staff_adopt" >
+
+                <conditions>
+                
+                    <!-- 
+                    
+                    Die Relation bestimmt den AreaKey welcher verwendet
+                    wird
+                    
+                    
+                    relation:
+                      mask      : mod-project/mgmt-project_task>mgmt-project_task_mask | mgmt-project_task_mask
+                      mgmt      : mod-project/mgmt-project_task>mgmt-project_task_mask | mgmt-project_task>mgmt-project_task_mask 
+                      entity    : mod-project/mgmt-project_task | mgmt-project_task
+                      category  : not yet defined
+                      module    : mod-project
+                      global    : no key given
+                       
+                    accuracy:
+                      dataset   : in relation to the dataset  id required
+                      mask      : in relation to the mask     area required
+                      entity    : in relation to the entity   area required
+                      category  : not yet defined
+                      module    : in relation to the module   area required
+                      global    : no area and no id are given
+                      
+                    
+                    potency:
+                      somewhere : user has to have rights somewhere, no id is used
+                      default   : user has to have the rights in on of the given area/id kombinations
+                      explicit  : user has to have an explicit assignment to the dataset/entity/mask... whatever
+                    
+                     -->
+		              
+		              <condition type="has_roles_explicit" >
+		                
+		                <!-- Hier ist potency immer explicit -->
+		                <area key="project_task" relation="entity" accuracy="dataset"  />
+                    
+                    <not />
+                    
+                    <break />
+                    
+		                <roles>
+		                  <role name="staff" />
+		                </roles>
+		              </condition>
+                  
+                  <condition type="somebody_has_roles_explicit" >
+                  
+                    <role name="staff" />
+                    
+                    <!-- Hier ist potency immer explicit -->
+                    <area key="project_task" relation="entity" accuracy="dataset"  />
+
+                    <granularity>0</granularity>
+
+                  </condition>
+		              
+                </conditions>
+
+              </node>
+              
+            </actions>
+            
+          </treetable>
+          
+        </list>
+     
+      </ui>
+
+    </management>
+
+  </managements>
+
+</bdl>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <!-- befinde sich immer in entity  -->
+  <entities>
+  
+
+    <entity name="name" >
+    
+      <concepts>
+      
+        <!-- 
+          Der Entity wird eine Referenz auf die 
+          wbfsys_tag Tabelle hinzugefügt
+        -->
+        <concept name="tagable" ></concept>
+        
+      </concepts>
+    
+    </entity>
+  </entities>
+
+</bdl>

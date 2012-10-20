@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+  
+  <somewhere>
+    <action>
+    
+      <procedures>
+      
+        <!-- 
+        Eine Mail versenden
+         -->
+        <procedure type="send_mail" >
+        
+          <!-- Name der Message.
+          Kann relativ sein, wenn innerhalb des Elements wie z.B eines Prozesses
+          Message Nodes definiert wurden
+          
+          required
+           -->
+          <message name="new" />
+          
+          <!-- 
+          Eine Systemmeldung triggern
+           -->
+          <messages>
+            <success>
+              <text lang="en" >Notified Creator and responsible Managers</text>
+            </success>
+          </messages>
+          
+          <!-- 
+            Liste mit den Empfängern
+            
+            Es gibt verschiedenen Typen von Empfängerlisten:
+            
+            - responsible
+            - group
+            - user
+           -->
+          <receivers>
+            <receiver type="responsible" name="management" >
+              <!-- 
+              Bestimmt an welche Channels eine nachricht geschickt wird
+              Ist optional, Standardmäßig wird es per Message + Mail wenn vorhanden
+              verschickt
+               -->
+              <channels>
+                <mail />
+                <message />
+              </channels>
+            </receiver>
+          </receivers>
+          
+        </procedure>
+      </procedures>
+    
+    </action>
+    
+  </somewhere>
+
+</bdl>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <!-- 
+    optional,
+    Mindestens das Englische Label muss vorhanden sein,
+    wenn ein Label definiert wird 
+  -->
+  <label>
+    <text lang="de" >Deutsches Label</text>
+    <text lang="de" >English Label</text>
+  </label>
+  
+  <!-- 
+    optional,
+    Mindestens das Englische Label muss vorhanden sein,
+    wenn ein Label definiert wird 
+  -->
+  <description>
+    <text lang="de" >Deutsches Label</text>
+    <text lang="de" >English Label</text>
+  </description>
+  
+  <!-- 
+    optional,
+    Mindestens das Englische Label muss vorhanden sein,
+    wenn ein Label definiert wird 
+  -->
+  <info>
+    <text lang="de" >Deutsches Label</text>
+    <text lang="de" >English Label</text>
+  </info>
+  
+  <!-- 
+    optional,
+    Mindestens das Englische Label muss vorhanden sein,
+    wenn ein Label definiert wird 
+  -->
+  <access access_level="" user_level="" >
+  </access>
+
+</bdl>

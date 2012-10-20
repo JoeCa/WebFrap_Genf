@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <!-- befinde sich immer in entity  -->
+  <entities>
+  
+    <!-- 
+      das attribute name ist required 
+      wenn 2 entitäten den gleichen namen haben werden sie beim
+      interpretieren gemerged, dabei gilt last write win
+        
+    -->
+    <entity name="name" >
+    
+
+    <references>
+    
+      <ref name="refname" binding="free"  relation="manyToOne" >
+
+        
+        <ui>
+        
+          <!-- no controls  -->
+          <controls>
+            <action name="connect" />
+            <action name="create" />
+          </controls>
+        
+          <list>
+            
+            <!-- the context -->
+            <table>
+  
+              <layout>
+                  <row>
+                    <col weight="1.5" label="Name" >
+                      <value tag="strong" name="acronym" action="edit" />
+                      <nl />
+                      <nl />
+                      <value tag="em" class="emphasized" name="full_name"  ></value>
+                    </col>
+                    <col label="Data" >
+                      <text tag="em" >Cat: </text><value name="id_category" /><nl />
+                      <text tag="em" >Phase: </text><value name="id_phase" /><nl />
+                      <text tag="em" >Status: </text><value name="id_status" />
+                    </col>
+                    <col type="ref" label="IO" target="project_io" >
+                      <reference name="project_io" target="project_io"  >
+                        <field tag="strong" name="io" />
+                      </reference>
+                    </col>
+                    <col label="Schedule" >
+                      <text tag="em" >Start: </text><value name="start_date" /><nl />
+                      <text tag="em" >End: </text><value name="end_date" />
+                    </col>
+                    <col type="menu" />
+                  </row>
+              </layout>
+              
+              <properties>
+                <search_field size="medium" />
+              </properties>
+              
+              <actions>
+                <node name="plan_project" >
+                  <label>
+                    <text lang="de" >Planning</text>
+                    <text lang="en" >Planning</text>
+                  </label>
+                  <ui type="button" ></ui>
+                  <action type="window" context="reference" ><![CDATA[window.php?c=Plan.Project.plan&objid=]]></action>
+                  <icon name="planProject" alt="planning" ><![CDATA[control/plan.png]]></icon>
+                </node>
+              </actions>
+              
+            </table>
+
+          </list>
+        </ui>
+      </ref>
+    
+    </references>
+    
+    
+    </entity>
+  </entities>
+
+</bdl>

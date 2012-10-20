@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <managements>
+
+    <management 
+      name="project_activity_mask_planning" 
+      src="project_activity" >
+
+      <ui>
+ 
+        <list>
+
+          <treetable>
+
+            <order_by>
+              <field 
+                name="priority" />
+              <field 
+                name="title" />
+            </order_by>
+    
+            <color_source attribute="id_develop_status" >
+              <background field="bg_color"  />
+              <text field="text_color" />
+            </color_source>
+
+            <layout>
+              <row>
+                <col label="name" >
+                  <value name="name"  /><nl />
+                  <value tag="em" name="title"  />
+                </col>
+                <col label="Proj. / Mst." >
+                  <value name="id_project"  /><nl />
+                  <value name="id_milestone"  />
+                </col>
+                <col label="Cat. / Prio." >
+                  <value name="id_category" field="name"  /><nl />
+                  <value name="priority"  />
+                </col>
+                <col label="status" >
+                  <value name="id_develop_status" >
+                    <ui_element type="process" />
+                  </value>
+                </col>
+                <col label="progress" >
+                  <value name="progress" />
+                </col>
+                <col label="schedule" >
+                  <text tag="em" >Start: </text><value name="start_date" /><nl />
+                  <text tag="em" >End: </text><value name="end_date" />
+                </col>
+                <col label="Staff"  >
+                  <reference name="human_resources" target="human_resources" >
+                    <field name="name" />
+                  </reference>
+                </col>
+                <col type="menu" ></col>
+              </row>
+            </layout>
+
+            <actions>
+              
+              <node name="staff_adopt" ></node>
+              
+            </actions>
+            
+          </treetable>
+          
+        </list>
+     
+      </ui>
+
+    </management>
+
+  </managements>
+
+</bdl>

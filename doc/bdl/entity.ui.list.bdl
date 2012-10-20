@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <entities>
+
+    <entity name="name" >
+      
+      <!-- 
+        
+        UI Beschreibung des Listenelements
+      
+      
+       -->
+    
+      <ui>
+        
+       <list>
+       
+        <!-- Felder der Tabelle anpassen  -->
+         <table>
+           
+           <!-- 
+           
+           -->
+           <layout>
+              <row>
+                <col width="300" label="Name" >
+                  <value name="name" action="edit" />
+                  <nl />
+                  <value name="lastname" src="embed_person" />
+                  <text>, </text>
+                  <value name="firstname" src="embed_person" />
+                </col>
+                <col width="100" label="Profile" >
+                  <value name="profile" field="name" />
+                </col>
+                <col label="E-Mail" >
+                  <value name="email" />
+                </col>
+                <col label="Meta" >
+                  <value name="m_time_created" />
+                </col>
+                <col label="Activ" >
+                  <value name="inactive" />
+                </col>
+                <col type="menu" />
+              </row>
+           </layout>
+
+         </table>
+         
+         <selection>
+           
+           <!-- custom table layout  -->
+           <layout>
+              <row>
+                <col weight="1.5" label="Name" >
+                  <value name="name" action="edit" /><nl />
+                  <value name="lastname" src="embed_person" />
+                  <text>, </text>
+                  <value name="firstname" src="embed_person" />
+                </col>
+                <col label="Role" >
+                  <text>Profile: </text> <value name="profile" />
+                </col>
+                <col label="Email" >
+                  <value name="email" />
+                </col>
+                <col label="Meta" >
+                  <value name="m_time_created" />
+                </col>
+                <col label="Activ" >
+                  <value name="inactive" />
+                </col>
+                <col type="menu" />
+              </row>
+           </layout>
+
+         </selection>
+       </list>
+       
+      </ui>
+      
+    
+    </entity>
+  </entities>
+
+</bdl>

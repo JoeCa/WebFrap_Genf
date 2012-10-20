@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <!-- befinde sich immer in entity  -->
+  <entities>
+  
+    <!-- 
+      das attribute name ist required 
+      wenn 2 entitäten den gleichen namen haben werden sie beim
+      interpretieren gemerged, dabei gilt last write win
+        
+    -->
+    <entity name="name" >
+    
+
+    <references>
+    
+      <ref name="refname" binding="free"  relation="manyToOne" >
+
+        
+        <label>
+          <text lang="de" >Projects</text>
+          <text lang="en" >Projects</text>
+        </label>
+        <src        name="enterprise_cost_center" ></src>
+        <target     name="project_activity"  id="id_lead_costcenter"  ></target>
+      </ref>
+      
+      <ref name="refname" binding="free"  relation="manyToMany" >
+
+        <label>
+          <text lang="de" >Projects</text>
+          <text lang="en" >Projects</text>
+        </label>
+        <src          name="enterprise_cost_center" ></src>
+        <connection   name="enterprise_company_cost_center" ></connection>
+        <target       name="project_activity"  id="id_lead_costcenter"  ></target>
+      </ref>
+    
+    </references>
+    
+    
+    </entity>
+  </entities>
+
+</bdl>

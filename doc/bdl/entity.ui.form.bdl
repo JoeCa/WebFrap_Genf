@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <entities>
+
+    <entity name="name" >
+    
+     <ui>
+            
+       <form>
+        <!-- create form  -->
+        <create>
+          <layout>
+            <fieldset>
+              <legend>Default</legend>
+              <box class="half left" >
+                <field name="name" />
+                <field name="firstname" src="embed_person" />
+                <field name="lastname" src="embed_person" />
+                <field name="academic_title" src="embed_person" />
+                <field name="noblesse_title" src="embed_person" />
+              </box>
+              <box class="half inline" >
+                <field name="photo" src="embed_person" />
+              </box>
+            </fieldset>
+            <fieldset>
+              <legend>Password and Roles</legend>
+              <box class="half left" >
+                <field name="password" />
+              </box>
+              <box class="half inline" >
+                <field name="level" />
+                <field name="profile" />
+              </box>
+            </fieldset>
+            <group name="contact" >
+              <body>
+                <field name="phone" src="embed_person" />
+                <field name="mobile" src="embed_person" />
+                <field name="fax" src="embed_person" />
+              </body>
+            </group>
+            <fieldset>
+              <legend>Description</legend>
+              <box class="full" >
+                <field name="description" />
+              </box>
+            </fieldset>
+            <category name="meta" />
+          </layout>
+        </create>
+        
+        <edit>
+          <layout>
+            <tabs>
+            <body>
+            
+              <tab name="default" >
+              <body>
+              
+              <fieldset>
+                <legend>Default</legend>
+                <box class="half left" >
+                  <field name="name"  />
+                  <field name="firstname" src="embed_person" />
+                  <field name="lastname" src="embed_person" />
+                  <field name="academic_title" src="embed_person" />
+                  <field name="noblesse_title" src="embed_person" />
+                </box>
+                <box class="half inline" >
+                  <field name="photo" src="embed_person" />
+                </box>
+              </fieldset>
+              <fieldset>
+                <legend>Password and Roles</legend>
+                <box class="half left" >
+                  <field name="password" />
+                </box>
+                <box class="half inline" >
+                  <field name="level" />
+                  <field name="profile" />
+                </box>
+              </fieldset>
+              <group name="contact" >
+                <body>
+                  <field name="phone" src="embed_person" />
+                  <field name="mobile" src="embed_person" />
+                  <field name="fax" src="embed_person" />
+                </body>
+              </group>
+              <fieldset>
+                <legend>Description</legend>
+                <box class="full" >
+                  <field name="description" />
+                </box>
+              </fieldset>
+              <category name="meta" />
+              
+              </body>
+              </tab>
+              
+              <tab name="groups_n_profiles" type="load" >
+                <label>
+                  <text lang="de" >Gruppen und Profile</text>
+                  <text lang="en" >Groups and Profiles</text>
+                </label>
+                <body>
+                  <reference name="user_roles" />
+                  <reference name="user_profiles" />
+                </body>
+              </tab>
+              
+            </body>
+            </tabs>
+          </layout>
+        </edit>
+        
+       </form>
+    
+     </ui>
+      
+      
+    
+    
+    </entity>
+  </entities>
+
+</bdl>

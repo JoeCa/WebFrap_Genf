@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <managements>
+
+    <management 
+      name="project_activity_mask_planning" 
+      src="project_activity" >
+
+      <ui>
+ 
+        <list>
+          
+          <!-- Liste der Felder die im Suchformular angezeigt werden sollen -->
+          <search>
+            <field name="name" ></field>
+            <field name="title" ></field>
+          </search>
+          
+          <!-- Die Felder nach denen Sortiert werden soll -->
+          <order_by>
+            <field name="name" />
+            <field name="title" />
+          </order_by>
+        
+          <!-- Beschreibung des Tabellen Layouts -->
+          <table>
+            <layout>
+              <row>
+                <col label="name" width="250" >
+                  <value name="name" action="edit" /><nl />
+                  <value tag="em" name="title" action="edit" />
+                </col>
+                <col label="category" width="150" >
+                  <value name="id_category" field="name" />
+                </col>
+                <col label="status" width="80" >
+                  <value name="id_status" />
+                </col>
+                <col  label="schedule" width="80" >
+                  <text>Start: </text><value name="start_date" src="root_task" /><nl />
+                  <text>End: </text><value name="end_date" src="root_task" />
+                </col>
+                <col label="description" width="250" >
+                  <value name="description" />
+                </col>
+                <col type="menu" />
+              </row>
+            </layout>
+          </table>
+          
+          <!-- Filter for all lists -->
+          <filter>
+            <check type="path" >
+              <code>project_activity.id_status.access_key IN("fuu","bar")</code>
+            </check>
+          </filter>
+          
+        </list>
+     
+      </ui>
+
+    </management>
+
+  </managements>
+
+</bdl>

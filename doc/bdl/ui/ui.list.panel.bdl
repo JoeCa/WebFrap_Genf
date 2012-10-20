@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <managements>
+
+    <management 
+      name="project_activity_mask_planning" 
+      src="project_activity" >
+
+      <ui>
+ 
+        <list>
+        
+          <table>
+          
+            <!-- Actions Maintab / Subwindow beareiten -->
+            <panel>
+            
+              <!-- 
+                Es gibt type:
+                  document   ein document (pdf,excel, whatever)
+                  request    ein ajax request
+                  link       ein generischer link
+               
+                name ist required
+               -->
+              <action type="document" name="some_report" >
+              
+                <label>
+                  <text lang="en" >Some Report</text>
+                </label>
+                
+                <icon name="report" src="control/report.png" alt="report" />
+                <request url="document.php?c=Some.Boring.report" method="get" />
+                
+              </action>
+              
+              
+              
+              <action type="request" name="some_request" >
+              
+                <label>
+                  <text lang="en" >Some Request</text>
+                </label>
+                
+                <!-- Zugriffsbeschränkung -->
+                <access>
+                
+                </access>
+                
+                <icon name="report" src="control/report.png" alt="report" />
+                <request url="document.php?c=Some.Boring.report" method="get" />
+                
+              </action>
+              
+            </panel>
+          </table>
+         
+        </list>
+     
+      </ui>
+
+    </management>
+
+  </managements>
+
+</bdl>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <!-- befinde sich immer in entity  -->
+  <entities>
+  
+
+    <entity name="name" >
+    
+      <concepts>
+      
+        <!-- 
+          Der Entity wird eine Referenz auf die wbfsys_file Tabelle hinzugefügt
+          Diese Referenz wird dazu verwendet im Attachments zu implementieren
+        -->
+        <concept name="router" >
+        
+          <attribute name="id_category" field="access_key" />
+              
+          <message>
+            <text lang="en" >Please choose the Category first.</text>
+          </message>
+          
+          <display>
+            <fields>
+              <field name="name" />
+            </fields>
+          </display>
+          
+          <routes>
+            <route value="cat1" target="some_entity_mask_cat1" />
+            <route value="cat1" target="some_entity_mask_cat2" />
+            <default target="some_entity_mask_other" ></default>
+          </routes>
+          
+        </concept>
+        
+      </concepts>
+    
+    </entity>
+  </entities>
+
+</bdl>

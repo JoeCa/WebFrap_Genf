@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <!-- befinde sich immer in entity  -->
+  <managements>
+  
+    <management name="name" src="name" >
+    
+
+      <ui>
+        <actions>
+          <action name="create" status="false"  />
+          <action name="insert" status="false"  />
+          
+          <action name="edit" status="false"  />
+          <action name="update" status="false"  />
+          
+          <action name="delete" status="false"  />
+          
+          <action name="listing" status="false"  />
+          
+          <action name="selection" status="false"  />
+        </actions>
+      </ui>
+
+    
+    </management>
+    
+  </managements>
+
+</bdl>

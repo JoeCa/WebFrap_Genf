@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <!-- befinde sich immer in entity  -->
+  <entities>
+  
+
+    <entity name="name" >
+    
+      <concepts>
+        <!-- Die Einträge sind in einem Baum strukturiert  -->
+        <concept name="tree" ></concept>
+      </concepts>
+    
+    </entity>
+  </entities>
+
+</bdl>

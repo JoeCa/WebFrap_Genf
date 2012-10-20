@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <!-- befinde sich immer in entity  -->
+  <managements>
+  
+    <management name="name" src="name" >
+    
+      <services>
+        <service name="listing" >
+          <access>
+            <roles>
+              <role name="project_manager" />
+            </roles>
+          </access>
+        </service>
+      
+      </services>
+
+    
+    </management>
+    
+  </managements>
+
+</bdl>

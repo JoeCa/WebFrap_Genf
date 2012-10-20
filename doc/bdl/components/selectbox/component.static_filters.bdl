@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <components>
+    
+    <!-- 
+    Selectbox mit diversen statischen filter beispielen
+     -->
+    <component 
+      type="selectbox" 
+      name="daidalos_rcs_repository-by_type" 
+      src="daidalos_rcs_repository"  >
+  
+      <label>
+        <text lang="de" >RVS Repository</text>
+        <text lang="en" >RVS Repository</text>
+      </label>
+
+      <id name="rowid" />
+      
+      <order_by>
+        <field name="access_key" />
+      </order_by>
+
+      <fields>
+        <field name="access_key" />
+      </fields>
+      
+      <filter>
+     
+        <params>
+          <!-- 
+            name: name der lokalen variable
+            
+            kann per setType() auf der Queryklasse gesetzt werden
+            Wenn der Parameter nicht gesetzt wird, wird der filter
+            ignoriert, aber eine warning getriggert.
+            Es werden dann zuviele Daten angezeigt
+            
+           -->
+          <param name="type" />
+        </params>
+      
+        <check type="path" >
+         <code>
+daidalos_rcs_repository.id_arch_type.access_key == @$type
+         </code>
+        </check>
+        
+        <!-- 
+        Einbinden im UI Element per:       
+         -->
+         
+        <ui_element type="selectbox" name="daidalos_rcs_repository-by_type" >
+          <params>
+            <param name="type" value="gw" />
+          </params>
+        </ui_element>
+        
+        <!-- Wenn type nicht dynamisch sein soll kann er direkt
+        als hardcodierter wert eingetragen werden 
+        
+        es gelten die üblichen filter operatoren:
+        
+        ==  (im gegensatz zu SQL werden 2= benötigt)
+        <=
+        >=
+        <
+        >
+        !=
+        IN()
+        LIKE
+        ILIKE
+        -->
+        
+        <check type="path" >
+         <code>
+daidalos_rcs_repository.id_arch_type.access_key == "gw"
+         </code>
+        </check>
+      
+      </filter>
+  
+    </component>
+    
+  </components>
+
+</bdl>

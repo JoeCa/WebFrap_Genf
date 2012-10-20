@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl version="1.0" >
+  <!-- Module befinden sich im RootNode modules  -->
+  <skeletons>
+
+    <!-- 
+      Name der Rolle, das Name Attribute wir auf den Access Key gemappt
+      
+      name: Name des Skeleton MVC
+      entity: relative Entity (optional)
+      type: type des Skeletons
+        es gibt:
+        - management 
+        - report [not yet implemented]
+        - document [not yet implemented]
+        - frontend [not yet implemented]
+        - graph [not yet implemented]
+        - widget [not yet implemented]
+        - service ( Ein Webservice ) [not yet implemented]
+      -->
+    <skeleton name="user" entity="" type="" >
+
+      <description>
+        <text lang="de" >User Role</text>
+        <text lang="en" >User Role</text>
+      </description>
+      
+      <!-- 
+        Generellen zugriff regeln
+       -->
+      <access></access>
+      
+      <!-- 
+      Welche Feature soll das Skeleton bereit stellen,
+      wenn nicht definiert wird das standard featureset des Skeleton types verwendet
+       -->
+      <features>
+        <feature></feature>
+      </features>
+
+    </skeleton>
+
+  </skeletons>
+</bdl>

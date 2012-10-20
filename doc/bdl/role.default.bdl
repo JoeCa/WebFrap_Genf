@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl version="1.0" >
+  <!-- Module befinden sich im RootNode modules  -->
+  <roles>
+
+    <!-- 
+      Name der Rolle, das Name Attribute wir auf den Access Key gemappt
+      -->
+    <role name="user" >
+      
+      <!-- Standard Label Tag  -->
+      <label>
+        <text lang="de" >User</text>
+        <text lang="en" >User</text>
+      </label>
+      
+      <description>
+        <text lang="de" >User Role</text>
+        <text lang="en" >User Role</text>
+      </description>
+      
+      <!--  
+        Das globale Zugriffslevel
+      -->
+      <level>EMPLOYEE</level>
+      
+      <!--  
+        Die Profile die eine Rolle zugewiesen bekommen hat
+      -->
+      <profiles>
+        <profile name="default" />
+      </profiles>
+
+    </role>
+
+  </roles>
+</bdl>

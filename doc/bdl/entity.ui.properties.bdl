@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <entities>
+
+    <entity name="name" >
+    
+      <ui>
+
+        <!-- 
+        Mit Properties können einer Entity diverse UI Eigenschaften 
+        zugewiesen werden.
+        -->
+        <properties>
+        
+          <!-- 
+            Autoload bewirkt, dass eine autoload service für ein UI Inputfeld 
+            erstellt wird.
+           -->
+          <autoload field="name" ></autoload>
+          
+          
+        </properties>
+             
+      </ui>
+    
+    
+    </entity>
+  </entities>
+
+</bdl>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <managements>
+
+    <management 
+      name="project_activity_mask_planning" 
+      src="project_activity" >
+
+      <ui>
+ 
+        <list>
+
+          <treetable>
+
+            <actions>
+              
+              <node name="staff_adopt" >
+              
+                <label>
+                  <text lang="de" >Adopt</text>
+                  <text lang="en" >Adopt</text>
+                </label>
+                
+                <condition>
+                  
+                </condition>
+                
+                <access access_level="access" ></access>
+     
+                <ui type="button" ></ui>
+                <action type="action" context="reference" ><![CDATA[ajax.php?c=Project.AdoptByStaff_Action.trigger&objid=]]></action>
+                <icon name="adopt" alt="adopt" ><![CDATA[control/adopt.png]]></icon>
+              </node>
+              
+            </actions>
+            
+          </treetable>
+          
+        </list>
+     
+      </ui>
+
+    </management>
+
+  </managements>
+
+</bdl>

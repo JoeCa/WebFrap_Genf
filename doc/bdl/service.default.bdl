@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl version="1.0" >
+  <!-- Module befinden sich im RootNode modules  -->
+  <services>
+
+    <!-- 
+      Name der Rolle, das Name Attribute wir auf den Access Key gemappt
+      -->
+    <service name="user" source="test" >
+      
+      <!-- Standard Label Tag  -->
+      <label>
+        <text lang="de" >User</text>
+        <text lang="en" >User</text>
+      </label>
+      
+      <description>
+        <text lang="de" >User Role</text>
+        <text lang="en" >User Role</text>
+      </description>
+
+      <fields>
+        <field name="default" />
+      </fields>
+      
+      <references>
+        <reference name="fubar"  />
+      </references>
+
+    </service>
+
+  </services>
+</bdl>

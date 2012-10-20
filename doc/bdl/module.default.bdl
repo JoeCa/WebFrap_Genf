@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl version="1.0" >
+  <!-- Module befinden sich im RootNode modules  -->
+  <modules>
+
+    <!-- 
+      der Einzige Parameter ist der name des Moduls
+      Dieser name ist gleichzeitig auch der Prefix aller entities und sonstigen
+      Elemente in diesem Modul
+      -->
+    <module name="bdl" >
+      
+      <!-- Standard Label Tag  -->
+      <label>
+        <text lang="de" >Bdl</text>
+        <text lang="en" >Bdl</text>
+      </label>
+      
+      <description>
+        <text lang="de" >Bdl</text>
+        <text lang="en" >Bdl</text>
+      </description>
+
+    </module>
+
+  </modules>
+</bdl>

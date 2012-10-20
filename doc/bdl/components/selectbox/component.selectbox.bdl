@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <components>
+    
+    <!-- 
+    Selectbox Componente.
+    Erzeugt ein Selectbox inputelement
+     -->
+  
+    <component 
+      type="selectbox" 
+      name="project_activity" 
+      src="project_activity"  >
+  
+      <!-- 
+      Default meta elemente
+       -->
+      <label>
+        <text lang="de" >Projekt</text>
+        <text lang="en" >Project</text>
+      </label>
+  
+      <description>
+        <text lang="de" >Projekt</text>
+        <text lang="en" >Project</text>
+      </description>
+  
+      <id name="rowid" />
+      
+      <order_by>
+        <field name="name" />
+      </order_by>
+
+      <fields>
+        <field name="name" />
+      </fields>
+  
+    </component>
+    
+  </components>
+
+</bdl>

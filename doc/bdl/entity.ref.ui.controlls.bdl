@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <entities>
+
+    <entity name="name" >
+    
+
+    <references>
+    
+      <ref name="a_many_to_one" binding="free"  relation="manyToOne" >
+
+        <ui>
+        
+          <!-- 
+            Mit controls kann festgelegt werden welche Aktionbuttons auf dem
+            Listingelement vorhanden sein sollen.
+            
+            Es gibt vordefinierte Aktions, es können jedoch auch eigene 
+            Actions und Buttons definiert werden.
+           -->
+          <controls>
+            
+            <!-- Datensätze die auf keinen oder einen anderen Datensatz referenzieren
+            auf den aktuellen Datensatz umhängen  -->
+            <action name="connect" />
+            
+            <!-- Einen neuen Datensatz in der Referenztabelle erstellen der dann 
+            auf den aktuell geöffneten Datensatz verweist   -->
+            <action name="create" />
+            
+          </controls>
+        
+          
+        </ui>
+      </ref>
+      
+      <ref name="a_many_to_many" binding="free"  relation="manyMany" >
+
+        <ui>
+        
+          <!-- no controls  -->
+          <controls>
+          
+            <!-- 
+             Erstellen einer Referenz zwischen einem bereits existierende Ziel-Datensatz
+             und dem aktuell geöffneten Datensatz.
+             -->
+            <action name="connect" />
+            
+            <!-- 
+            Einen neuen Datensatz erstellen und mit dem aktuellen über eine Referenzdatensatz
+            verknüpfen.
+             -->
+            <action name="create" />
+            
+            <!-- 
+            Multiassign element anzeigen
+             -->
+            <action name="multi_assign" />
+          </controls>
+        
+          
+        </ui>
+      </ref>
+    
+    </references>
+    
+    
+    </entity>
+  </entities>
+
+</bdl>

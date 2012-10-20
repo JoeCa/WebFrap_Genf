@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <entities>
+
+
+    <entity name="name" >
+        
+       <data>
+       
+          <body>
+            <row key="root" >
+              <val name="label" >Root</val>
+              <val name="description" >The Root Security Area</val>
+            </row>
+          </body>
+          
+          <body target="wbfsys_security_area_type" >
+            <row key="module" >
+              <val name="name" >Module</val>
+              <val name="description" >A Module</val>
+            </row>
+            <row key="module_category" >
+              <val name="name" >Module Category</val>
+              <val name="description" >Category für ein Module</val>
+            </row>
+            <row key="entity" >
+              <val name="name" >Entity</val>
+              <val name="description" >An Entity</val>
+            </row>
+            <row key="entity_reference" >
+              <val name="name" >Entity Reference</val>
+              <val name="description" >A Reference on the Entity Level</val>
+            </row>
+            <row key="entity_category" >
+              <val name="name" >Entity Category</val>
+              <val name="description" >A Category for grouping the Attributes on the Entity Level</val>
+            </row>
+            <row key="entity_attribute" >
+              <val name="name" >Entity Attribute</val>
+              <val name="description" >Attributes</val>
+            </row>
+            <row key="mgmt" >
+              <val name="name" >Management</val>
+              <val name="description" >Management Node for an Entity</val>
+            </row>
+            <row key="mgmt_reference" >
+              <val name="name" >Management Reference</val>
+              <val name="description" >A Reference on the Management Level</val>
+            </row>
+            <row key="page" >
+              <val name="name" >Page</val>
+              <val name="description" >Access to a Frontend Page</val>
+            </row>
+            <row key="widget" >
+              <val name="name" >Widget</val>
+              <val name="description" >Access to a Widget</val>
+            </row>
+            
+          </body>
+          
+        </data>
+    
+    </entity>
+  </entities>
+
+</bdl>

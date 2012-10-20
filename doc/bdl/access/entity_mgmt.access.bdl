@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <entities>
+  
+
+    <entity name="name" >
+    
+      <!-- 
+        Regeln des Zugriffs
+       -->
+      <access>
+      
+        <!-- Erweitern der Standard Checks -->
+        <checks>
+          
+          <!-- Check auf die Rollen, wenn der jemand project manager für die verlinkte
+          Entity ist, erbt er automatisch access level update
+          und die rollen project manager, bzw project_manager_deputy -->
+          <check 
+            type="role" 
+            field="id_company" ><!-- reference field -->
+          
+            <roles>
+              <role name="project_manager" />
+              <role name="project_manager_deputy" />
+            </roles>
+            
+            <!-- Setzen des zurgriffslevels  -->
+            <set access_level="update" ref_level="update" >
+              <!-- Rollezugehörigkeit erweitern -->
+              <roles>
+                <role name="project_manager" />
+                <role name="project_manager_deputy" />
+              </roles>
+            </set>
+            
+          </check>
+        </checks>
+        
+        <!-- Für Profile können die Checks angepasst werden -->
+        <profiles>
+          
+          <!--  -->
+          <profile name="project_manager" >
+            
+            <checks>
+              
+              <!-- Check auf die Rollen, wenn der jemand project manager für die verlinkte
+              Entity ist, erbt er automatisch access level update
+              und die rollen project manager, bzw project_manager_deputy -->
+              <check 
+                type="role" 
+                field="id_company" ><!-- reference field -->
+              
+                <roles>
+                  <role name="project_manager" />
+                  <role name="project_manager_deputy" />
+                </roles>
+                
+                <!-- Setzen des zurgriffslevels  -->
+                <set access_level="update" ref_level="update" >
+                  <!-- Rollezugehörigkeit erweitern -->
+                  <roles>
+                    <role name="project_manager" />
+                    <role name="project_manager_deputy" />
+                  </roles>
+                </set>
+                
+              </check>
+            </checks>
+            
+          </profile>
+          
+          <profile name="company_head" >
+            
+            <checks>
+              <check 
+                type="role" 
+                field="id_company" >
+              
+                <roles>
+                  <role name="company_head" />
+                </roles>
+                
+                <set access_level="access" ref_level="access" >
+                  <!-- Rollezugehörigkeit erweitern -->
+                  <roles>
+                    <role name="company_head" />
+                  </roles>
+                </set>
+                
+              </check>
+            </checks>
+            
+          </profile>
+
+        </profiles>
+      </access>
+    
+    </entity>
+  </entities>
+
+</bdl>

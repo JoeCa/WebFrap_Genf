@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <entities>
+
+    <entity name="name" >
+
+    <attributes>
+        
+        <attribute is_a="status" >
+        
+          <!--
+           defaults sind:
+           src      = this.name = project_activity
+           srdId    = project_activity.id_type
+    
+           target   = status.name = project_activity_status
+           targetId = project_activity_status.id_type
+          -->
+          <group_by field="id_type" target_id="id_category" />
+    
+          <!-- typed bedeutet,
+           dass project_activity_status nochmal eine tabelle project_activity_status_type erstellt
+           wenn nicht anders angegeben wird anhand des localen types ( design by convetion ) gruppiert
+           existiert kein lokaler type, dann wird ein standard type erstellt
+           -->
+          <typed />
+          
+        </attribute>
+        
+        
+    </attributes>
+    
+
+    </entity>
+  </entities>
+
+</bdl>

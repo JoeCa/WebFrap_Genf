@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <!-- befinde sich immer in entity  -->
+  <entities>
+  
+    <!-- 
+      das attribute name ist required 
+      wenn 2 entitäten den gleichen namen haben werden sie beim
+      interpretieren gemerged, dabei gilt last write win
+        
+    -->
+    <entity name="name" >
+    
+
+    <references>
+    
+      <ref name="refname" binding="free"  relation="manyToOne" >
+
+        
+        <ui>
+
+          <list>
+            
+            <!-- the context -->
+            <table>
+
+              
+              <properties>
+                <search_field size="medium" />
+              </properties>
+
+              
+            </table>
+
+        
+          </list>
+        </ui>
+      </ref>
+    
+    </references>
+    
+    
+    </entity>
+  </entities>
+
+</bdl>

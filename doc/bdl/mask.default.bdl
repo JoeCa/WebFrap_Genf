@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <!-- 
+    Masken sind templates für Custom UI Nodes.
+    
+    Masks können nur für identische Entities verwendet werden
+    Vererbung und Interfaces könnten eines Tages zu einem Shared zwischen
+    Datenquellen sorgen, ist im Moment aber nicht unterstützt
+
+    
+  -->
+  <masks>
+    
+    <!-- 
+      Kompletter UI Bereich
+     -->
+    <ui name="" source="entity_name" >
+    
+    </ui>
+  
+    <!-- 
+      Maske für ein custom Form
+     -->
+    <form name="" context="" source="entity_name"  >
+    
+    </form>
+    
+    <!-- 
+      Maskenfragment für ein Formelement
+     -->
+    <form_fragment name="" context="" source="entity_name"  >
+    
+    </form_fragment>
+    
+    <list name="" context="" source="entity_name" >
+    
+    </list>
+
+    <list_fragment name="" context="" source="entity_name" >
+    
+    </list_fragment>
+
+  </masks>
+
+</bdl>

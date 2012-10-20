@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <!-- 
+  Beschreibung der Benutzerrechte für eine View
+  -->
+  <managements>
+  
+    <management name="name" src="name" >
+    
+
+      
+      <!-- 
+        Access Level ist der Wert der benötigt wird um auf etwas zuzugreifen,
+        z.B. access, insert, update.. etc
+        
+        User Level ist das Persönliche Level des Benutzers.
+      
+        Für den Zugriff genügt es eine von Beiden bedingungen zu erfüllen.
+        
+        access level:
+          DENIED  = 0   Keine zugriffsrechte nötig
+          LISTING = 1   Listenberechtigung
+          ACCESS  = 2   Leseoperationen auf einem Datensatz
+          ASSIGN  = 4   Es dürfen Referenzen auf diesen Datensatz erstellt werden
+          INSERT  = 8   Neue Einträge erstellen
+          UPDATE  = 16  Vorhandene Einträge anpassen
+          DELETE  = 32  Löschberechtigung
+          PUBLISH = 64  Sichbarleit des Datensatzes darf angepasst werden ( nur für bestimmte kontexte benötigt )
+          MAINTENANCE = 128  Zugriff auf die Metaebene, imports, exports, statistiken etc
+          ADMIN       = 256  Voller Zugriff, kann berechtigungen vergeben
+
+
+        Mit Inherit kann angegeben werden, dass eine Maske ihre Berechtigungen
+        von einer anderen Maske erbt und keine Eigenen ACLs pflegt
+          mod-fuu/mgmt-fuu/mgmt-fuu_zzy für management fuu_bar
+        
+        Mit "extend" wird eine zusätzeliche Maske eingebunden bei der 
+          Abfrage der Berechtigungen
+          z.B  mod-fuu/mgmt-fuu/mgmt-fuu_zzy>mgmt-fuu_bar für management fuu_bar
+        
+       -->
+      <access 
+        access_level="insert" 
+        user_level="l2" 
+        inherit="management_name" 
+        extend="other_management_name"  >
+      
+ 
+        <!-- 
+          Direktzugriff für bestimmte Rollen erlauben.
+          
+          Wenn Roles in management, oder entity nodes verwendet wird,
+          dann werden mit diesen informationen datensätze erstellt und on
+          deploy mit dem system gesynct.
+          
+          Bei Buttons wird nur auf die zugehörigkeit der gruppe geprüft
+         -->
+        <roles>
+          <role name="admin" access_level="level" />
+        </roles>
+        
+        <!-- 
+          Profil spezifische Zugriffskontrolle.
+          
+          Eigentlich haben Profile nicht direkt mit der Zugriffskontrolle zu tun.
+          In diesem Fall werden die Profile verwendet um detailierter zu testen.
+          
+         -->
+        <profiles>
+        
+          <profile name="maintenance" >
+            
+            <!-- 
+              Ein Check auf einen 
+             -->
+            <check type="rule" ><![CDATA[            
+              name.id_project mask 'project_activity_mask_whatever' level 'admin'
+            ]]></check>
+            
+            <check 
+              type="role" 
+              max_level="delete" 
+              field="id_category" >
+            
+              <roles>
+                <role name="manager_l2" />
+              </roles>
+	            
+              <set access_level="delete" ref_level="delete" >
+                <level name="project_employee" level="delete" />
+              </set>
+              
+            </check>
+            
+            <check 
+              type="role" 
+              max_level="delete" 
+              field="id_category" >
+            
+              <roles>
+                <role name="manager_l2" />
+              </roles>
+              
+              <path>id_entity1.id_entity2</path>
+              
+              <set access_level="delete" ref_level="delete" >
+                <level name="project_employee" level="delete" />
+              </set>
+              
+            </check>
+            
+            
+          </profile>
+        
+        </profiles>
+      
+      </access>
+    
+
+    </management>
+    
+  </managements>
+
+</bdl>

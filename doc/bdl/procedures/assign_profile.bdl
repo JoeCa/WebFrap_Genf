@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+  
+  <somewhere>
+    <action>
+    
+      <procedures>
+      
+        <!-- 
+        Dem aktiven User ein Profil zuweisen
+         -->
+        <procedure type="assign_profile" >
+        
+          <!-- 
+          Name des Profiles das zugewiesen werden soll
+          
+          required
+           -->
+          <profile name="manager" />
+
+          
+        </procedure>
+      </procedures>
+    
+    </action>
+    
+  </somewhere>
+
+</bdl>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <!-- befinde sich immer in entity  -->
+  <entities>
+  
+
+    <entity name="name" >
+
+      
+      <attributes>
+        
+        <attribute name="attr1" type="text" >
+        
+          <!-- 
+            I18n wird direkt auf den Attributen hinterlegt
+            
+            Sobald ein Attribute i18n ist wird für die entity eine i18n Tabelle
+            angelegt
+           -->
+          <concepts>
+            <concept name="i18n" ></concept>
+          </concepts>
+        </attribute>
+      
+      </attributes>
+    
+    </entity>
+  </entities>
+
+</bdl>

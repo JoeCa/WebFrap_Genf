@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+  <desktops>
+
+    <desktop name="user" >
+
+      <navigation name="user">
+        <body>
+          <cell name="dashboard" />
+        </body>
+      </navigation>
+
+      <tree name="user" >
+        <body>
+
+          <node name="explorer">
+            <label>
+              <text lang="de">Explorer</text>
+              <text lang="en">Explorer</text>
+            </label>
+            <icon src="control/folder.png" alt="explorer" />
+            <action href="maintab.php?c=Webfrap.Navigation.explorer" />
+          </node>
+
+          <subtree name="my_data" >
+            <body>
+              <node name="my_profile">
+                <label>
+                  <text lang="de">My Profile</text>
+                  <text lang="en">My Profile</text>
+                </label>
+                <icon src="control/entity.png" alt="my profile" />
+                <action href="maintab.php?c=My.Profile.listing" />
+              </node>
+              <node name="my_messages">
+                <label>
+                  <text lang="de">My Messages</text>
+                  <text lang="en">My Messages</text>
+                </label>
+                <icon src="control/entity.png" alt="my messages" />
+                <action href="maintab.php?c=My.Messages.inbox" />
+              </node>
+              <node name="my_appointments">
+                <label>
+                  <text lang="de">My Appointments</text>
+                  <text lang="en">My Appointments</text>
+                </label>
+                <icon src="control/entity.png" alt="my appointments" />
+                <action href="maintab.php?c=My.Appointments.listing" />
+              </node>
+              <node name="my_tasks">
+                <label>
+                  <text lang="de">My Tasks</text>
+                  <text lang="en">My Tasks</text>
+                </label>
+                <icon src="control/entity.png" alt="my tasks" />
+                <action href="maintab.php?c=My.Tasks.listing" />
+              </node>
+            </body>
+          </subtree>
+
+          <body />
+        </body>
+      </tree>
+
+      <panel name="user">
+        <body>
+          <container name="menu" type="Header">
+            <element type="content_header" />
+            <element type="separator_menu" />
+            <element type="content_userinfo" />
+            <element type="separator_menu" />
+            <element type="content_profile" />
+            <element type="separator_tab_box" />
+          </container>
+          <container name="maintab" type="Maintab" />
+        </body>
+      </panel>
+
+      <workarea name="user">
+        <area name="dashboard">
+          <containers type="Wallpaper" />
+        </area>
+      </workarea>
+
+
+    </desktop>
+
+  </desktops>
+</bdl>

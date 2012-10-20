@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="WebFrap_Gw_Example" title="WebFrap Example" >
+
+  <author><![CDATA[Dominik Bonsch <dominik.bonsch@webfrap.de>]]></author>
+  <copyright><![CDATA[Webfrap Developer Network <contact@webfrap.de>]]></copyright>
+  <licence>GPLv3</licence>
+
+  <version>1</version>
+  <revision>1</revision>
+
+  <model version="1.0" >bdl</model>
+  <architecture version="0.3" >wbf</architecture>
+
+  <languages>
+    <lang>de</lang>
+    <lang>en</lang>
+  </languages>
+
+  <path>
+    <path_gw>{$PATH_PROJECT}</path_gw>
+    <path_output>{$PATH_OUTPUT}</path_output>
+    <path_deploy>{$PATH_DEPLOY}</path_deploy>
+  </path>
+
+  <includepath>
+    <path>{$PATH_BDL}</path>
+  </includepath>
+
+  <var name="PATH_PROJECT"  value="{$PATH_ROOT}WebFrap_Gw_Devconce/" />
+  <var name="PATH_BDL"      value="{$PATH_ROOT}WebFrap_Chinou/bdml/" />
+  <var name="PATH_OUTPUT"   value="{$PATH_ROOT}WebFrap_Gw_Devconce/cache/genf/devconce/" />
+  <var name="PATH_DEPLOY"   value="{$PATH_ROOT}" />
+
+  <databases>
+
+    <connection driver="Postgres" type="Postgres" name="webfrap_all" >
+      <host>localhost</host>
+      <db>webfrap_gw_devconce</db>
+      <port>5432</port>
+      <dataschema>webfrap</dataschema>
+      <owner>webfrapadmin</owner>
+      <user>webfrapadmin</user>
+      <pwd>webfrapadmin</pwd>
+    </connection>
+
+  </databases>
+
+  <import>
+    <!-- <modul name="core"  path="{$CHINOU_PATH}bdl/" deploy="convention" /> -->
+    <modul name="core"    />
+
+    <modul name="wbfsys"  />
+     <!---->
+  </import>
+
+  <deployment>
+    <!-- <mod name="*" >{$PROJECT_PATH}</mod>--><!-- Alles in den Projektpfad deployen -->
+    <mod name="all" >{$PATH_PROJECT}</mod>
+  </deployment>
+
+  <nodes>
+    <node>entity</node>
+
+    <node>management</node>
+    <node>definition</node>
+    <node>module</node>
+    <node>process</node>
+    <!---->
+  </nodes>
+
+  <cartridges>
+
+    <!--<cartridge architecture="Wbfbdl"  class="Entity"      version="0.3" type="Entity" />-->
+
+
+    <cartridge class="Entity"      type="Entity" />
+
+
+    <cartridge class="Mod"         type="Module" />
+    <cartridge class="Acl"         type="Management" />
+    <cartridge class="Query"       type="Management" />
+    <cartridge class="Templates"   type="Management" />
+    <cartridge class="Wgtmenu"     type="Management" />
+    <cartridge class="Wgtform"     type="Management" />
+    <cartridge class="Webservice"  type="Management" />
+    <cartridge class="Wgttable"    type="Management" />
+    <cartridge class="Components"  type="Management" />
+    <cartridge class="Controller"  type="Management" />
+    <cartridge class="Model"       type="Management" />
+    <cartridge class="Language"    type="Management" />
+
+
+    <cartridge class="DdlPostgresql" type="Ddl"  >
+      <owner>webfrapadmin</owner>
+      <schema>webfrap</schema>
+      <appendDump>{$PROJECT_PATH}data/ddl/data.sql</appendDump>
+    </cartridge>
+
+
+
+    <cartridge class="Dokubdl.Erd" version="0.3" type="ErDoku" owner="webfrapadmin" schema="webfrap"  >
+      <owner>webfrapadmin</owner>
+      <schema>webfrap</schema>
+      <path>{$PROJECT_PATH}doc/erd/</path>
+    </cartridge>
+     <!---->
+
+  </cartridges>
+
+</project>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <views>
+
+    <view name="name" >
+
+    <!-- 
+      Liste der Attribute.
+      
+      Der Pk wird immer automatisch angelegt, heißt "rowid" ist ein int wert und
+      verweißt auf eine globale sequence.
+      
+      Weiter werden zusätzliche Metadaten automatisch angelegt:
+      
+      m_time_created (timestamp)  Erstellungszeitpunkt
+      m_role_create (ref:wbfsys_role_user)  Speicher den Ersteller
+      m_time_changed (timestamp)  Zeitpunkt der letzten Änderung
+      m_role_change (ref:wbfsys_role_user)  Die Person, welche den Datensatz zuletzt geändert hat
+      m_version (int) Anzahl der Updates auf den Datensatz, wird für Kollisionsprävention verwendet
+      m_uuid (UUID) eine global eindeutige ID für den Datensatz. Wird zum austauschen des Datensatzes mit anderen Systemen verwendet
+   
+     -->
+    <attributes>
+    
+        <!--  
+          name:  (string) {required} Name des Attributes, und das Einzige wirkliche Pflichtfeld, alle anderen Attribute haben default values
+          type:  [int,text,numeric,date...] {def:text} Datentype
+          size:  (int:size)|(int:size,int:presicion) {def:null} größe des Feldes
+          
+          target:  (string:entity name) name einer entity, auf die das attribute verweist ( wenn das attribute eine referenz ist)
+                   Namen von referenzattributen fangen immer!!! per konvention mit "id_" an.
+                   Es sollte jedoch nicht stupide der name der entity verwendet werden sondern ein beschreibender name z.B.
+                   id_supervisor bei einer referenz auf einen employee mit der rolle supervisor in dem kontext
+
+        -->
+    
+      <attribute 
+        name="an_attribute" 
+        type="text" 
+        size="200" 
+        source="origin_table"
+        target="target_in_case_of_a_reference"
+        >
+        
+        <!-- 
+        Das UI Element kann definiter werden, muss aber nicht. Wenn kein uiElement vorhanden ist
+        legt der Interpreter automatisch ein passendes Element anhand des angegeben Datentype an.  
+        
+        Momentan vorhandene UI Typen sind:
+        
+        - Autocomplete
+        - Bitmask
+        - Checkbox
+        - Color
+        - Date
+        - Email
+        - File
+        - FileImage
+        - Guess
+        - Hidden
+        - ImageFile
+        - Input
+        - Int
+        - Integer
+        - Money
+        - Numeric
+        - Password
+        - Percent
+        - Priority
+        - Progress
+        - Radio
+        - Ratingbar
+        - Selectbox
+        - Text
+        - Textarea
+        - Time
+        - Timestamp
+        - Url
+        - Uuid
+        - Window
+        - Wysiwyg
+        
+        Nicht jedes Element ist mit jedem Datentype kompatibel.
+        Mit etwas gesundem Menschenverstand dürfte es nicht zu schwer fallen unsinnige
+        Kombinationen zu vermeiden.
+        
+        Attribute:
+        
+        type: der type
+        name: Name des Elements ( wird z.B. bei speziellen Selectboxen benötigt )
+        src: Die Datenquelle des UIElements, wir benötigt wenn "many to one" elemente, wie z.B. eine Selectbox, verwendet werden
+             src wird automatisch gesetzt, wenn das "attribute" ein "target" Attribute hat
+        
+               
+        -->
+          <uiElement 
+            type="text" 
+            name="" 
+            src=""
+            >
+            
+            <hidden /><!-- UI Element wird nicht angezeigt per default, kann aber eingeblendet werden. Im Gegensatz zu type:hidden wird das gewählte Element verwendet, aber ist erst mal ausgeblendet -->
+            <readonly /><!-- Das UI Element ist in Formularen per default nur Readonly, Änderungen durch z.B durch das Clientprogramm werden jedoch persistiert -->
+            <disabled /><!-- Element kann nur gelesen werden, Änderungen die der Client an das Backend sendet werden ignoriert. Kann nur impliziet im Backend geändert werden  -->
+          
+            <!-- Die Größe des UI Elements. Anders als bei display::size wird hier die größe mit (CSS) Klassen angegeben
+              width:
+                - xxsmall
+                - xsmall
+                - small
+                - medium
+                - large
+                - xlarge
+                - xxlarge
+                - full
+             
+              Height macht nur bei Textarea, oder ähnlichen Inputelementen Sinn
+              height:
+                - small_height
+                - medium_height
+                - large_height
+                - full_height
+                
+              Soweit nicht angegeben werden je nach gewählten Inputelement 
+              die passenden default Werten verwendet.
+                
+            -->
+            <size
+              width="medium"
+              height=""
+              />
+              
+            <!--  
+             position wird verwendet im die standardeigenschaften des UI Elements bei der Positionierung
+             in automatisch generierten Formularen anzupassen.
+             Position wird nur dann verwendet wenn keine expliziete Positionierung durch <ui> Tags vorgegeben wird.
+             
+             valign: {def: middle}
+              - top     im oberen Bereich anordnen
+              - middle  mittlerer Bereich
+              - bottom  im unteren Bereich
+              
+              
+             align: {def: null}
+              - left in der linkesten spalte
+              - center in der mittleren Spalte / einer der Mittleren ( mach nur Sinn bei mehr als 2 Spalten)
+              - right rechten Spalte
+              
+             piority: [int:0-100] {def: 50}
+              je höher die Priorität desto weiter links oben, wird das UI Element angeordnet
+ 
+            -->
+            <position 
+              valign="middle"
+              align="center"
+              priority="50"
+            />
+
+          
+          </uiElement>
+          
+          
+          <!-- 
+            Das display Tag wird verwendet um die Ausgabe des Attributes innerhalb der erzeugten
+            UIs zu steuern.
+            
+            Per default werden alle Attribute in CRUD Formularen platziert, nicht aber in Searchforms oder Listenelementen.
+            
+            Attribute:
+            
+            field:
+            Wenn das Attribute eine Referenz auf einen Datensatz in einer anderen Tabelle ist, kann mit dem "field" attribute
+            angegeben werden welches Feld aus der Referenztabelle anstelle des "in der regel numerischen" Wertes
+            im Attribut, angezeigt werden soll.
+            
+            width:
+            Die Breite des Elements in Listingelementen, soweit möglich diese zu setzen.
+            Die Breite wird in Pixeln angegeben
+        
+           -->
+          
+          <display 
+            field="name" 
+            width="125"
+            >
+            
+            <!-- alle subknoten können ebenfalls ein field attribute haben mit dem sie das field attribute
+            aus display überschreiben können  -->
+          
+            <input /><!-- Wenn in einem Inputelement ( z.B. das Window UIElement ) ein Text auseggeben wird, werden die Daten aus diesem Attribute mit angezeigt -->
+            <text /><!-- Daten werden bein $entity->text() mit ausgegeben  -->
+            
+            <!-- Listing typen -->
+            <listing /><!-- listing ist ein Sammeltag, dieses Attribute wird dann in alle Listingelement angezeigt, z.B. Tabellen, Listen, Trees...  -->
+            <table /><!-- Feld wird in Tabellen Elementen Angezeigt -->
+            <list /><!-- Feld wird in List Elementen Angezeigt -->
+            <tree /><!-- Feld wird in Tree Elementen Angezeigt -->
+            <treetable /><!-- Feld wird in Treetable Elementen Angezeigt -->
+            <blocklist /><!-- Feld wird in Blocklist Elementen Angezeigt -->
+          
+          </display>
+        
+          
+          <!-- Setzen eines Default Values, sollte logischerweise zum Datensatz passen -->
+          <default></default>
+          
+          <!-- Es ist möglich auf Datensätze zu verweise, die Entity auf die verwiesen wird muss jedoch einen
+          Access Key implementieren -->
+          <default target="entity_name" key="access_key_value" ></default>
+          
+        
+        </attribute>
+
+        
+    </attributes>
+    
+
+    </view>
+  </views>
+
+</bdl>

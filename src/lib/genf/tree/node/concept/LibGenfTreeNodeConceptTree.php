@@ -1,0 +1,54 @@
+<?php
+/*******************************************************************************
+*
+* @author      : Dominik Bonsch <dominik.bonsch@webfrap.net>
+* @date        :
+* @copyright   : Webfrap Developer Network <contact@webfrap.net>
+* @project     : Webfrap Web Frame Application
+* @projectUrl  : http://webfrap.net
+*
+* @licence     : BSD License see: LICENCE/BSD Licence.txt
+* 
+* @version: @package_version@  Revision: @package_revision@
+*
+* Changes:
+*
+*******************************************************************************/
+
+
+/**
+ * @package WebFrap
+ * @subpackage GenF
+ */
+class LibGenfTreeNodeConceptTree
+  extends LibGenfTreeNodeConcept
+{
+////////////////////////////////////////////////////////////////////////////////
+// attributes
+////////////////////////////////////////////////////////////////////////////////
+
+  /**
+   *
+   */
+  public $key = null;
+
+  /**
+   *
+   */
+  public function loadChilds()
+  {
+
+    if( isset( $this->node->field['name'] ) )
+    {
+      $this->key = trim($this->node->field['name']);
+    }
+    else
+    {
+      $this->key = 'm_parent';
+    }
+
+  }//end public function loadChilds */
+
+
+}//end class LibGenfTreeNodeConceptTree
+

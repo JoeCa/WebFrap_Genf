@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <!-- befinde sich immer in entity  -->
+  <managements>
+  
+    <management name="name" src="name" >
+        
+       
+       <ui>
+        <form>
+          <edit>
+            <layout>
+            
+
+              <tabs>
+
+                <body>
+                 
+                 <tab name="default" >
+                   <body>
+	                  <group name="default" cols="3" >
+	                    <body>
+	                      <field name="name" ></field>
+	                      <field name="id_status" ></field>
+	                      <field name="id_manager" ></field>
+	                    </body>
+	                  </group>
+	                </body>
+	              </tab>
+
+		             <tab name="partners" type="load" >
+		               <body>
+		                 <box class="full wgt-border-bottom" >
+		                    
+		                   <!-- 
+		                    Einbinden des Items type: role_list
+		                    
+		                    Mit diesem Item können Rollen in Relation zu einem Datensatz angezeigt werden
+		                   
+		                    Type,Name und Source sind required
+		                   
+		                    -->
+		                   <item type="role_list" name="roles" source="project_activity" >
+		                    
+		                     <!--  
+		                      In Relation wird der Grad der Verknüpfung definiert der benötigt wird
+		                      um aufgelistet zu werden. Es gibt:
+		                      
+		                      global:   globale zugehörigkeiten werden auch gelistet
+		                      area:     muss zumindest in relation zur area sein
+		                      dataset:  muss direkt zum datensatz zugewiesen sein
+		                      
+		                      Wenn relation nicht gesetzt ist wird dataset als default werden genommen
+		                     -->
+		                     <relation>area</relation>
+		                   
+		                     <properties>
+                           
+                         </properties>
+	                       
+	                       <!-- 
+	                         Mit roles kann die Auswahl der Rollen eingeschränkt werden
+	                         Die Rolle muss jedoch im Tool mit der Area verknüpft sein, sonst wird diese nicht angezeigt
+	                        -->
+			                   <roles>
+			                     
+			                     <!-- 
+			                       name: accesskey der group_role
+			                       
+			                       min:  minimale anzahl von Zuweisungen die benötigt werden, wenn leer
+			                             gibt es keine einschränkung (optional, default: null)
+			                             
+			                       max:  maximal mögliche Anzahl von Zuweisungen. Diese Anzahl bezieht sich nur auf die direkt
+			                             mit dem Datensatz verknüpften User, wenn leer
+                                    gibt es keine einschränkung (optional, default: null)
+			                      -->
+			                     <role name="project_manager" min="" max="" />
+			                   </roles>
+		                   </item>
+		                   
+		                 </box>
+		               </body>
+		             </tab>
+    
+                </body>
+                           
+              </tabs>
+            </layout>
+          </edit>
+          
+        </form>
+ 
+      </ui>
+
+    
+    </management>
+    
+  </managements>
+
+</bdl>

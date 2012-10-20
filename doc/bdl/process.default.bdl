@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <processes>
+    
+    <!-- 
+      name: Name des Prozesses (Cname)
+      src: Die Datenquelle für den Process
+    
+     -->
+    <process 
+      name="business_bill-handling"
+      src="business_bill" >
+      
+      <!-- 
+      Label
+       -->
+      <label>
+        <text lang="de" >Rechnungs Verwaltung</text>
+        <text lang="en" >Bill Handling</text>
+      </label>
+      
+      <!-- 
+      Description
+       -->
+      <description>
+        <text lang="de" >Prozess zu Behandeln von Rechnungen</text>
+      </description>
+      
+      <!-- 
+        Welchen Status sollen bereits existierende Knoten bekommen,
+        wenn zu beginn kein Prozess initialisiert wurde?
+       -->
+      <default_node>new</default_node>
+      
+      <!-- 
+      Relevante Datenquellen hinzufügen
+       -->
+      <data_sources>
+        <source name="project_activity" entity="project_activity" >
+          <path>project_task_staff.id_task.id_project</path>
+        </source>
+        <source name="enterprise_department" entity="enterprise_department" >
+        </source>
+      </data_sources>
+      
+      <!-- 
+        Liste mit Responsibles
+        können per key eingebunden werden
+      -->
+      <responsibles>
+        
+        <responsible name="responsible" >
+        
+           <check key="enterprise_department" type="role" >
+            <roles>
+              <role name="manager_dep" />
+              <role name="manager_dep_deputy" />
+            </roles>
+            <else>
+              <check key="enterprise_company" type="role" >
+                <roles>
+                  <role name="manager_comp" />
+                  <role name="manager_comp_deputy" />
+                </roles>
+              </check>
+            </else>
+          </check>
+          
+        </responsible>
+        
+        <responsible name="requester" >
+        
+          <check key="project_activity" type="role" >
+            <roles>
+              <role name="project_manager" />
+              <role name="project_manager_deputy" />
+            </roles>
+          </check>
+          
+        </responsible>
+      
+      </responsibles>
+      
+      <!-- 
+      Die Phasen des Projektes
+       -->
+      <phases>
+        <phase name="" >
+          <label></label>
+          <description></description>
+          <icon></icon>
+        </phase>
+      </phases>
+      
+      <!-- 
+      Nodes
+      
+       -->
+      <nodes>
+      
+        <!-- 
+          name: name des Prozessnodes (Cname)
+         -->
+        <node name="new" order="1" >
+          
+          <!--  
+            Label ist hier required
+          -->
+          <label>
+            <text lang="de" >Neu</text>
+            <text lang="en" >New</text>
+          </label>
+          
+          <!--  
+            Description ist hier required
+          -->
+          <description>
+            <text lang="de" >Eine Neue Rechnung wurde empfangen und eingestellt.</text>
+          </description>
+          
+          <!-- 
+          Das Icon für den Status
+          
+            src: quelle für das icon
+          
+           -->
+          <icon 
+            src="process/new.png" />
+            
+          <!-- 
+          Verweis auf die Zuständigkeiten
+           -->
+          <responsibles key="responsible" ></responsibles>
+          
+           <!-- 
+           Edges legen fest wohin man von diesem Node aus weiter kommt
+           -->
+          <edges>
+            
+            <edge target="need_more_information" >
+              <!--  
+                Label ist hier required
+              -->
+              <label>
+                <text lang="de" >Mehr Informationen benötigt</text>
+                <text lang="en" >Need more Information</text>
+              </label>
+              
+              <!--  
+                Description ist hier required
+              -->
+              <description>
+                <text lang="de" ></text>
+                <text lang="en" ></text>
+              </description>
+            </edge>   
+            
+            <edge target="node_name" >
+              
+            </edge>   
+            
+          </edges>
+          
+        </node>
+        
+        <node name="need_more_information" order="2" >
+
+          <label>
+            <text lang="de" >Mehr Informationen benötigt</text>
+            <text lang="en" >Need more Information</text>
+          </label>
+
+          <description>
+            <text lang="de" >Zum behandeln der Rechnungen werden mehr Informationen benötigt</text>
+          </description>
+          
+          <icon src="process/warn.png" />
+
+          <edges>
+            
+            <edge target="check" > 
+            
+              <label>
+                <text lang="de" >Check</text>
+              </label>
+              
+              <!--  
+                Description ist hier required
+              -->
+              <description>
+                <text lang="de" >Prüfen ob die Rechnung ok ist.</text>
+              </description>
+              
+              
+            </edge>   
+            
+            <edge target="node_name" >
+              
+            </edge>   
+            
+          </edges>
+          
+        </node>
+
+      </nodes>
+      
+      <!-- 
+      Actions
+      -->
+      <actions>
+        
+        <action 
+          name="new_bill_created" 
+          class="business_bill-handling-new_bill_created"
+          entity="entity"  ></action>
+          
+      </actions>
+
+      <!-- 
+      Liste der Nachrichten
+       -->
+      <messages>
+        
+        <message 
+          name="accepted" 
+          class="business_bill-handling-accepted"
+          entity="entity"  ></message>
+          
+        <message 
+          name="cancel" 
+          class="business_bill-handling-cancel"
+          entity="entity" ></message>
+        
+      </messages>
+    
+    </process>
+  
+  </processes>
+
+</bdl>

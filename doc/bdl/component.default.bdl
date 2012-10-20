@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <!-- 
+  Was ist ein management knoten
+  
+  befindet sich immer in managements 
+  -->
+  <managements>
+  
+    <management name="name" src="name" >
+    
+
+    </management>
+    
+  </managements>
+
+</bdl>

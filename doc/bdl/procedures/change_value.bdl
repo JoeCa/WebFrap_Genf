@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+  
+  <somewhere>
+    <action>
+    
+      <procedures>
+      
+        <!-- 
+        Ändern von Values auf einer Entity
+         -->
+        <procedure type="change_value" >
+        
+          <!-- 
+          Der Name der Entity auf welcher Daten geändert werden sollen
+          
+          required
+           -->
+          <entity key="entity_name" />
+          
+          <values>
+            <!-- 
+              key: Name des Attributes
+              value: Der Wert der gesetzt werden soll
+              null: wenn gesetzt wird der value des attributes auf null gesetzt
+             -->
+            <value key="" value="" null="" />
+          </values>
+  
+        </procedure>
+      </procedures>
+    
+    </action>
+    
+  </somewhere>
+
+</bdl>

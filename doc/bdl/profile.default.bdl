@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl version="1.0" >
+  <!-- Module befinden sich im RootNode modules  -->
+  <profiles>
+
+    <!-- 
+      Name der Rolle, das Name Attribute wir auf den Access Key gemappt
+      -->
+    <profile name="user" >
+      
+      <elements>
+        <panel name="default" />
+        <mainmenu name="default" />
+        
+        <desktop name="user" />
+        <navigation name="user" />
+        
+        <workarea name="user" />
+        <tree name="user" />
+      </elements>
+
+    </profile>
+
+  </profiles>
+</bdl>

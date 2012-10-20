@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+  <messages>
+
+    <message 
+      name="sbiz_page" 
+      entity="entity"
+      extends="fu_bar" >
+    
+      <title>
+        <text lang="de" >Project-Details {@project_activity.acronym@}</text>
+        <text lang="en" >Project-Details {@project_activity.acronym@}</text>
+      </title>
+      
+      <channels>
+        <channel name="mail" />
+      </channels>
+      
+      <receiver>
+      
+      </receiver>
+      
+      <layout>
+      
+        
+      </layout>
+            
+    </message>
+    
+  </messages>
+</bdl>

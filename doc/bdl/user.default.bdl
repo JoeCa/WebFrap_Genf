@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <users>
+  
+    <!-- 
+    Knoten zum anlegen von Usern
+     -->
+    <user name="name" >
+    
+      <firstname></firstname>
+      <lastname></lastname>
+      <password></password>
+      <employee></employee>
+      <non_cert_login></non_cert_login>
+      
+      <academic_title></academic_title>
+      <noblesse_title></noblesse_title>
+      
+      <description></description>
+
+      <main_profile></main_profile>
+      <user_level></user_level>
+      
+      <contact>
+        <item value="" type="" />
+      </contact>
+
+      <roles>
+        <role name="" />
+      </roles>
+      
+      <profiles>
+        <profile name="" />
+      </profiles>
+    
+    </user>
+    
+  </users>
+
+</bdl>

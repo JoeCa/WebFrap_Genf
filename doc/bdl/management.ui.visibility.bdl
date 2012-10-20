@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <!-- befinde sich immer in entity  -->
+  <managements>
+  
+    <management name="name" src="name" >
+    
+
+      <ui>
+        <!-- 
+          Die Visibillity definiert unter welchen Bedigungen dieses Management
+          angezeigt wird.
+          
+          Das kann zb. Beim wechseln der Maske zum Einsatz kommen, oder in den Menus.
+         -->
+        <visibility>
+        </visibility>
+      </ui>
+
+    
+    </management>
+    
+  </managements>
+
+</bdl>

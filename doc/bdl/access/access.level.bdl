@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <!-- 
+  Beschreibung der Benutzerrechte für eine View
+  -->
+  <managements>
+  
+    <management name="name" src="name" >
+    
+        
+      <access>
+        
+        <!-- 
+          Über die Levels kann das Zugriffslevel definiert werden, welches
+          nötig ist um auf eine Maske mit bestimmten Rechten zu kommen
+         -->
+        <levels>
+          <listing>30</listing>
+          <access></access>
+          <assign></assign>
+          <insert></insert>
+          <update></update>
+          <delete></delete>
+          <publish></publish>
+          <maintenance></maintenance>
+          <admin></admin>
+          
+          <ref_listing></ref_listing>
+          <ref_access></ref_access>
+          <ref_assign></ref_assign>
+          <ref_insert></ref_insert>
+          <ref_update></ref_update>
+          <ref_delete></ref_delete>
+          <ref_publish></ref_publish>
+          <ref_maintenance></ref_maintenance>
+          <ref_admin></ref_admin>
+        </levels>
+        
+      </access>
+    
+
+    </management>
+    
+  </managements>
+
+</bdl>

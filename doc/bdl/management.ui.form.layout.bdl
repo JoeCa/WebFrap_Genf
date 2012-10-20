@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <!-- befinde sich immer in entity  -->
+  <managements>
+  
+    <management name="name" src="name" >
+        
+       
+       <ui>
+       
+        <!-- 
+          im Formteil des UIs kann das Aussehen der Formular genau definiert werden.
+          
+          Dazu gibt es eine Reihe von Einfachen und zusammengesetzten Elementen
+          mit deren Hilfe sich praktisch jedes Layout erstellen lässt.
+          
+          Für ganz besondere Anforderungen kann direkt auf Plain HTML zurückgegriffen werden
+         -->
+        <form>
+          
+          <!-- 
+            Hier wird ein Formular für den Edit Context beschrieben
+            
+            Es gibt im Moment:
+            
+            create
+            edit
+            crud ( create+edit soweit keine eigenständigen forms definiert sind )
+            
+           -->
+          <edit>
+            <layout>
+            
+              <!-- 
+                Dies gibt ein Tab Layout.
+                
+                Wenn keine Tabs benötigt werden kann hier auch direkt mit Boxen
+                oder sonstigen Elementen angefangen werden.
+               -->
+              <tabs>
+              
+                <!-- 
+                  Der Content kommt immer in den Body um zwischen Layout
+                  und Metainformationen unterscheiden zu können.
+                 -->
+                <body>
+                 
+                 <tab name="default" >
+                   <body>
+	                  <group name="default" cols="3" >
+	                    <body>
+	                      <field name="name" ></field>
+	                      <field name="id_status" ></field>
+	                      <field name="id_manager" ></field>
+	                    </body>
+	                  </group>
+                  
+	                  <box name="datac" type="tab" >
+	                    <body>
+	
+	                      <tab name="schedule" >
+	                        <body>                  
+	                          <group name="schedule" cols="3" >
+	                            <body>
+	                              <field name="start_date" ></field>
+	                              <field name="end_date" ></field>
+	                              <field name="duration" ></field>
+	                            </body>
+	                          </group>
+	                        </body>
+	                      </tab>
+	                      
+	                      <tab name="budget" >
+	                        <body>
+	                          <group name="budget" cols="3" >
+	                            <body>
+	                              <field name="budget" src="default_task" ></field>
+	                              <field name="total_budget" src="default_task" ></field>
+	                              <field name="effort" src="default_task" ></field>                               
+	                            </body>
+	                          </group>
+	                        </body>
+	                      </tab>
+	                  
+	                    </body>
+	                  </box>                
+	                  <category name="meta" />
+	                </body>
+	              </tab>
+                                         
+              <tab name="description"  >
+                <body>
+                  <group>
+	                  <body name="description" >                  
+		                  <field name="abstract"  ></field>
+		                  <field name="description" src="default_task" ></field>
+	                  </body>
+                  </group>
+                </body>
+              </tab>
+              
+              <tab name="partners" type="load" >
+                <body>
+                  <box class="full wgt-border-bottom" >
+                    <reference name="partners" />
+                  </box>
+                </body>
+              </tab>
+              
+             <tab name="project_specifics" type="target" url="Crass.doc.template">   
+               <label>
+                 <text lang="en" >Project Specifics</text>
+               </label>
+               <fields>
+                 <field name="confidential" src="default_task" ></field>
+                 <field name="standard_products" src="default_task" ></field>
+                 <field name="standard_products_list" src="default_task" ></field>                
+               </fields>
+             </tab>
+                          
+              </body>
+                           
+              </tabs>
+            </layout>
+          </edit>
+          
+        </form>
+ 
+      </ui>
+
+    
+    </management>
+    
+  </managements>
+
+</bdl>

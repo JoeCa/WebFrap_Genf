@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <managements>
+
+    <management 
+      name="project_activity_mask_planning" 
+      src="project_activity" >
+
+      <ui>
+ 
+        <list>
+
+          
+          <!-- 
+          Es gibt verschiedenen Filtertypen, und Eigenschaften
+
+          Auch wenn die Filter teils auf die Daten der ACls zugreifen, und ACLs mit
+          den Filtern implementiert werden können, verstößt es strengstens
+          gegen die Architekturregeln das zu tun.
+          
+          Für die Zugriffskontrolle gibt es den Access Bereich.
+          
+          Ein Filter verhindert keinen Direkten zugriff per ID auf einen Datensatz
+          dies wird nur durch eine korrektes Access Tag sicher gestellt.
+          
+          Die Definition von Filtern ist das ausblenden von nicht benötigten
+          Informationen. Teils aktivier oder deaktivierbar.
+ 
+          -->
+          <filter>
+            <!-- 
+            
+            Pfadfilter werden analysiert und automatisch in die Query gebaut,
+            Sie beschreiben einen Pfad durch das Datenmodell sowie filterbedinungen
+            
+            Der Name wird benötigt wenn der Filter aktivierbar oder deaktivierbar sein soll
+             -->
+            <check type="path" name="def_filter" >
+              
+              <!-- 
+                Es kann auch ein zugriffslevel definiert werden
+                muss aber nicht
+               -->
+              <access access_level="" max_level="" >
+              
+                <roles>
+                  
+                  <!-- 
+                    name: name der rollen
+                    
+                    potency: 
+                      dataset : nur auf Datensatz Ebene
+                      area
+                      global
+                      
+                        Standard ist Datensatz Ebene, dataset  
+                    
+                  
+                   -->
+                
+                  <role name="" potency="" />
+                </roles>
+   
+                
+              </access>
+            
+              <!-- Die controls erlauben Filter zu aktivieren, oder zu deaktivieren -->
+              <controls>
+                
+                <control location="sub_panel" type="checkbutton" > 
+ 
+                  <label>
+                    <text lang="de" >Ein Filter</text>
+                    <text lang="en" >A Filter</text>
+                  </label>
+                  
+                  <!-- 
+                  Standard ist inactive
+                   -->
+                  <default>active</default>
+                  
+                </control>
+              
+              </controls>
+              
+              <!-- Der Eigentliche Filter
+              
+              Es gibt:
+              
+              IN
+              =
+              !=
+              IS NULL
+              NOT IS NULL
+              >
+              <
+              >=
+              <=
+              
+              Mehrere Regeln können mit AND und OR verknüpft werden
+              
+              Strings müssen immer in " Doppel Quotes
+              Escapezeichen ist \
+              
+               -->
+              <code>project_activity.id_status.access_key IN("fuu","bar")</code>
+            </check>
+            
+            <!-- 
+              Filter nach Rollen 
+              
+              Field ist der Name des Attributes auf der aktuellen Masterentity
+              
+            -->
+            <check 
+               type="role" 
+               field="id_center" >
+             
+               <roles>
+                 <role name="manager" />
+                 <role name="manager_deputy" />
+               </roles>
+               
+             </check>
+             
+             <!-- Rolle mit Pfad -->
+             <check 
+                type="role" 
+                max_level="delete" 
+                field="id_center" >
+              
+                <roles>
+                  <role name="manager" />
+                  <role name="manager_deputy" />
+                </roles>
+                
+                <path>id_task.id_project</path>
+
+              </check>
+            
+          </filter>
+          
+        </list>
+     
+      </ui>
+
+    </management>
+
+  </managements>
+
+</bdl>

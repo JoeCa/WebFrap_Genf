@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+  
+  <somewhere>
+    <action>
+    
+      <procedures>
+      
+        <!-- 
+        Dem aktiven User eine Rolle wegnehmen
+         -->
+        <procedure type="remove_role" >
+        
+          <!-- 
+          Name des Profiles das zugewiesen werden soll
+          
+          required
+           -->
+          <role name="role_name" />
+          <area name="entity_name" key="mgmt_name" />
+
+          
+        </procedure>
+      </procedures>
+    
+    </action>
+    
+  </somewhere>
+
+</bdl>

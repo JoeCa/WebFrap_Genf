@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <!-- befinde sich immer in entity  -->
+  <entities>
+  
+    <!-- 
+      das attribute name ist required 
+      wenn 2 entitäten den gleichen namen haben werden sie beim
+      interpretieren gemerged, dabei gilt last write win
+        
+    -->
+    <entity name="name" >
+    
+    <!-- 
+      optional,
+      Mindestens das Englische Label muss vorhanden sein,
+      wenn ein Label definiert wird 
+    -->
+    <label>
+      <text lang="de" >Deutsches Label</text>
+      <text lang="de" >English Label</text>
+    </label>
+    
+    <!-- 
+      Liste der Attribute
+     -->
+    <attributes>
+      <attribute name="an_attribute" type="text" size="200" ></attribute>
+    </attributes>
+    
+    
+    <references>
+    
+    </references>
+    
+    
+    </entity>
+  </entities>
+
+</bdl>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bdl>
+
+  <entities>
+
+    <entity name="name" >
+    
+      <ui>
+      
+        <!-- 
+          Über Menu kann die Eigenschaft der Entität im Menü beinflusst werden.
+          Disable bedeutet, dass kein Menüpunkt im Navigator angelegt werden wird.
+        -->
+        <menu type="disabled" />
+        
+        <!-- 
+        Mit Properties können einer Entity diverse UI Eigenschaften 
+        zugewiesen werden.
+        -->
+        <properties>
+        
+          <!-- 
+            Autoload bewirkt, dass eine autoload service für ein UI Inputfeld 
+            erstellt wird.
+           -->
+          <autoload field="name" ></autoload>
+          
+          
+        </properties>
+        
+        <form>
+        
+        </form>
+        
+        <list>
+        
+        
+          <!--  
+            Die Sortierreihenfolge
+          -->
+          <order_by>
+            <field 
+              name="field_name" 
+              adjustment="asc|desc" />
+          </order_by>
+          
+        </list>
+        
+
+        
+      </ui>
+    
+    
+    </entity>
+  </entities>
+
+</bdl>
